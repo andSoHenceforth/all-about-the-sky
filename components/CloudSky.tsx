@@ -122,7 +122,13 @@ function skyColors(h: number): [number[], number[]] {
 }
 
 // sky component
-export default function CloudSky({ sky }: { sky: SkyParams }) {
+export default function CloudSky({
+  sky,
+  interactive = true,
+}: {
+  sky: SkyParams;
+  interactive?: boolean;
+}) {
   const ref = useRef<HTMLCanvasElement>(null);
   const target = useRef(sky);
   useEffect(() => {
@@ -593,7 +599,7 @@ export default function CloudSky({ sky }: { sky: SkyParams }) {
     <canvas
       ref={ref}
       aria-label="This is a sky you can freely interact with. Drag or touch the clouds to move them."
-      className="fixed inset-0 h-full w-full touch-none"
+      className={`fixed inset-0 h-full w-full ${interactive ? "touch-none" : "pointer-events-none"}`}
     />
   );
 }
