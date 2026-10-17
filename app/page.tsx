@@ -1,5 +1,5 @@
-import SkyHome from "@/components/SkyHome";
+import HomeOverlay from "@/components/HomeOverlay";
 
 export default function Home() {
-  return <SkyHome />;
+  return <HomeOverlay />;
 }
